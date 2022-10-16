@@ -24462,6 +24462,7 @@ and limitations under the License.
                         this.navItemsAnchors.find("> span:visible")),
                     (this.video = this.el.find(".cb-hero-video video")),
                     (this.footer = this.el.find(".cb-hero-footer")),
+                    console.log(this.navItems[0].dataset.videoSrc)
                     this.bind(),
                     this.prefetch(),
                     this.handleEnter();
