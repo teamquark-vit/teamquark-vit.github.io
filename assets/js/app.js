@@ -19450,10 +19450,7 @@ and limitations under the License.
                         key: "setContentVideo",
                         value: function (t) {
                             this.dialog.html(
-                                '<div class="cb-modal_box-embedded"><video preload="auto" style="pointer-events:none" loop autoplay playsinline><source src="'.concat(
-                                    t,
-                                    '" type="video/mp4"></video></div>'
-                                )
+                                '<div class="cb-modal_box-embedded"><video preload="auto" style="pointer-events:none" loop autoplay playsinline><source src="./assets/video/QUARK_TRAILER_2022.mp4" type="video/mp4"></video></div>'
                             );
                         },
                     },

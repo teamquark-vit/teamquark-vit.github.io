@@ -279,9 +279,7 @@
 
 @font-face {
     font-family: "Averta CY";
-    src: url(http://cdn.cuberto.com/cb/fonts/averta/AvertaCY-Light.woff2) format("woff2"),
-        url(//cdn.cuberto.com/cb/fonts/averta/AvertaCY-Light.woff) format("woff"),
-        url(//cdn.cuberto.com/cb/fonts/averta/AvertaCY-Light.ttf) format("truetype");
+    src: url(../font/Averta\ Light.woff) format("woff");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -289,9 +287,7 @@
 
 @font-face {
     font-family: "Averta CY";
-    src: url(//cdn.cuberto.com/cb/fonts/averta/AvertaCY-Regular.woff2) format("woff2"),
-        url(//cdn.cuberto.com/cb/fonts/averta/AvertaCY-Regular.woff) format("woff"),
-        url(//cdn.cuberto.com/cb/fonts/averta/AvertaCY-Regular.ttf) format("truetype");
+    src: url(../font/Averta.woff) format("woff");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -299,9 +295,7 @@
 
 @font-face {
     font-family: "Averta CY";
-    src: url(//cdn.cuberto.com/cb/fonts/averta/AvertaCY-Semibold.woff2) format("woff2"),
-        url(//cdn.cuberto.com/cb/fonts/averta/AvertaCY-Semibold.woff) format("woff"),
-        url(//cdn.cuberto.com/cb/fonts/averta/AvertaCY-Semibold.ttf) format("truetype");
+    src: url(../font/Averta\ Semibold.woff) format("woff");
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -309,9 +303,7 @@
 
 @font-face {
     font-family: "Averta CY";
-    src: url(//cdn.cuberto.com/cb/fonts/averta/AvertaCY-Bold.woff2) format("woff2"),
-        url(//cdn.cuberto.com/cb/fonts/averta/AvertaCY-Bold.woff) format("woff"),
-        url(//cdn.cuberto.com/cb/fonts/averta/AvertaCY-Bold.ttf) format("truetype");
+    src: url(../font/Averta\ Bold.woff) format("woff");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -1865,43 +1857,43 @@ em {
 }
 
 .-color-ulesson {
-    color: #fb7554;
+    color: #A6A6AD;
 }
 
 .-color-ulesson-bg {
-    background-color: #fb7554;
+    background-color: #A6A6AD;
 }
 
 .-color-riyadh {
-    color: #93c252;
+    color: #F5A741;
 }
 
 .-color-riyadh-bg {
-    background-color: #93c252;
+    background-color: #F5A741;
 }
 
 .-color-sigma {
-    color: #fb6052;
+    color: #01B5FE;
 }
 
 .-color-sigma-bg {
-    background-color: #fb6052;
+    background-color: #01B5FE;
 }
 
 .-color-sleepiest {
-    color: #893596;
+    color: #41C524;
 }
 
 .-color-sleepiest-bg {
-    background-color: #893596;
+    background-color: #41C524;
 }
 
 .-color-genesis {
-    color: #57c0b3;
+    color: #FAE281;
 }
 
 .-color-genesis-bg {
-    background-color: #57c0b3;
+    background-color: #FAE281;
 }
 
 .-color-genesis-branding {
@@ -6819,6 +6811,7 @@ em {
 }
 
 .cb-featured-items {
+    display: block;
     padding: 130px 0 0 0;
     margin: -40px -20px;
     -webkit-user-select: none;
@@ -6836,6 +6829,8 @@ em {
 
 @media (min-width: 768px) {
     .cb-featured-items {
+        display: flex;
+        flex-wrap: wrap;
         padding: 150px 0 0 0;
         margin: -40px -80px;
     }
@@ -6843,12 +6838,14 @@ em {
 
 @media (min-width: 1024px) {
     .cb-featured-items {
+        /* display: block; */
         margin: -40px -100px;
     }
 }
 
 @media (min-width: 1200px) {
     .cb-featured-items {
+        display: block;
         margin: 0;
     }
 }
@@ -6982,6 +6979,7 @@ em {
     -webkit-border-radius: 40px;
     -moz-border-radius: 40px;
     border-radius: 40px;
+    aspect-ratio: 1/1;
 }
 
 @media (min-width: 1200px) {
@@ -9048,6 +9046,7 @@ em {
     right: 0;
     bottom: 0;
     width: 100%;
+    /* object-fit: cover; */
 }
 
 .cb-splitshow-preview picture {
