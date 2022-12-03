@@ -1860,6 +1860,10 @@ em {
     color: #A6A6AD;
 }
 
+.-color-quark-bg {
+    background-color: #E361FF;
+}
+
 .-color-ulesson-bg {
     background-color: #A6A6AD;
 }
@@ -4107,6 +4111,7 @@ em {
     display: block;
     overflow: hidden;
     z-index: 2;
+    margin: 0 auto;
 }
 
 .cb-btn_more-title span {
@@ -4233,11 +4238,11 @@ em {
     right: 0;
     bottom: 0;
     border: 0;
-    background: #ff424d;
+    background: #EC96FF;
 }
 
 .cb-btn_more.-danger .cb-btn_more-ripple span {
-    background: #ff2935;
+    background: #E361FF;
 }
 
 @media (pointer: fine) {

@@ -1,3 +1,8 @@
 .cb-loader {display:none !important;}
 .cb-feedback-item {display:none;}
 .cb-feedback-item:first-child {display:block;}
+
+.membership-perks-container{
+    margin-top: 5rem;
+    
+}
