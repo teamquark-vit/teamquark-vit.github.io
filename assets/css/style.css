@@ -4245,6 +4245,27 @@ em {
     background: #E361FF;
 }
 
+.cb-featured-more.-membership-btn{
+    text-align: left;
+}
+
+.cb-btn_more.-membership {
+    color: #fff;
+}
+
+.cb-btn_more.-membership:after {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 0;
+    background: #EC96FF;
+}
+
+.cb-btn_more.-membership .cb-btn_more-ripple span {
+    background: #E361FF;
+}
+
 @media (pointer: fine) {
     .cb-btn_more:hover .cb-btn_more-title span {
         color: #fff;
@@ -7114,6 +7135,16 @@ em {
 @media (min-width: 768px) {
     .cb-featured-more {
         padding: 80px 0 0 0;
+    }
+}
+.cb-featured-more.-membership-btn {
+    padding: 30px 0;
+    /* text-align: center; */
+}
+
+@media (min-width: 768px) {
+    .cb-featured-more.-membership-btn {
+        padding: 40px 0;
     }
 }
 
