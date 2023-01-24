@@ -278,32 +278,35 @@
 }
 
 @font-face {
-    font-family: "Averta CY";
-    src: url(../font/Averta\ Light.woff) format("woff");
+    /* font-family: "Averta CY"; */
+    src: url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap') format("woff");
+    font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Averta CY";
-    src: url(../font/Averta.woff) format("woff");
+    /* font-family: "Averta CY";
+    src: url(../font/Averta.woff) format("woff"); */
+    src: url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap') format("woff");
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Averta CY";
-    src: url(../font/Averta\ Semibold.woff) format("woff");
+    src: url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap') format("woff");
+    font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Averta CY";
-    src: url(../font/Averta\ Bold.woff) format("woff");
+    src: url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap') format("woff");
+    font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -560,7 +563,7 @@ body {
     padding: 0;
     background: #fff;
     color: #000;
-    font-family: "Averta CY", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     letter-spacing: normal;
     line-height: normal;
