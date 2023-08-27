@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puppet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    'sm': '640px',
+                    'md': '768px',
+                    'lg': '1024px',
+                    'xl': '1280px',
+                },
+            },
+            extend: {
+                colors: {
+                    clifford: '#da373d',
+                }
+            }
+
+        }
+    </script>
+
+    <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.7.2.1.min.js"></script>
+
+    <style>
+        body {
+            background-color: white;
+        }
+
+        #main-div {
+            display: none;
+            z-index: 100;
+        }
+
+        /* Safari syntax */
+        :-webkit-full-screen {
+            background-color: white;
+        }
+
+        /* IE11 */
+        :-ms-fullscreen {
+            background-color: white;
+        }
+
+        /* Standard syntax */
+        :fullscreen {
+            background-color: white;
+        }
+
+        .text-center {
+            text-align: center;
+            font-size: 42px;
+            font-family: inherit;
+            font-weight: 400;
+            /* line-height: 100%; */
+            /* letter-spacing: -0.03em; */
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        #audio-div {
+            display: none;
+            text-align: center;
+            align-items: center;
+        }
+
+        #pause_btn {
+            display: none;
+            margin-top: 10px;
+            margin-left: 38%;
+        }
+
+        #play_btn {
+            display: block;
+            margin-top: 10px;
+            margin-left: 38%;
+            padding: 15px 32px;
+            text-align: center;
+            /* display: inline-block; */
+            font-size: 16px;
+
+        }
+
+        #submitBtn {
+            display: none;
+        }
+    </style>
+</head>
+
+<body id="body" class=" ">
+    <div id="form-div">
+        <div class="flex items-center mx-3 justify-center h-auto mt-[150px]">
+            <div>
+                <div class="relative">
+                    <input type="text" id="username"
+                        class="d-block border-b py-1 text-[20px] md:text-[40px] focus:outline-none focus:border-purple-600 focus:border-b-2 transition-colors peer"
+                        placeholder="Type your Name" autocomplete="off" required>
+                    <label for="username"
+                        class="absolute left-0 text-[20px] md:text-[30px] top-1 text-transparent cursor-text peer-focus:text-xs peer-focus:-top-4 peer-focus:text-purple-600 transition-all">Username</label>
+                </div>
+                <div class="flex justify-center items-center mt-5">
+                    <input id="submitBtn"
+                        class="w-50 px-4 py-2 font-bold text-white bg-purple-600 rounded-full hover:bg-purple-800 focus:outline-none focus:shadow-outline"
+                        type="submit" value="Next Step" onclick="openFullscreen()">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div id="form-div">
+        <label>Enter your Name</label> <br />
+        <input type="text" id="name" placeholder="Enter your name"><br />
+        <button id="submitBtn">Submit</button>
+    </div> -->
+    <div id="main-div" class="overflow-hidden">
+        <h2 class="text-center text-[20px] sm:text-[40px] mt-5 sm:block text-center font-monospace font-bold">
+            Transforming, the QUARK way!
+        </h2>
+        <div id="audio-div">
+            <!-- <h1>This is audio</h1> -->
+            <button id="play_btn" onclick="playAudio()"
+                class="w-50 px-4 py-2 font-bold text-white bg-purple-600 rounded-full hover:bg-purple-800 focus:outline-none focus:shadow-outline">Exit</button>
+            <button id="pause_btn" onclick=""
+                class="w-50 px-4 py-2 font-bold text-white bg-purple-600 rounded-full hover:bg-purple-800 focus:outline-none focus:shadow-outline">Pause</button>
+            <audio id="myAudio">
+                <source src="audio.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <!-- <div class="block text-center text-[20px] sm:hidden flex flex-col justify-center sm:flex-row font-monospace font-bold">
+            <h1 class="">
+                Ideation
+            </h1>
+        
+            <h1 class="">
+                Collaboration
+            </h1>
+         
+            <h1 class="">
+                Innovation
+            </h1>
+        </div> -->
+        <div>
+            <!-- <h1 class="hidden sm:block text-center font-monospace font-bold">Ideation . Collaboration . Innovation</h1> -->
+            <!-- <div class="flex justify-center overflow-hidden"><svg width="520" height="721" viewBox="0 0 720 921" class="w-fit h-screen" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="720" height="920.66" fill="black"/>
+            <path d="M286.147 423.293V571.44L138 497.367V349.22L286.147 423.293Z" class="logo" fill="#E361FF"/>
+            <path d="M582.44 127V571.44L434.293 645.513V793.66L286.147 719.587L138 793.66V497.367L286.147 571.44L434.293 497.367V349.22L286.147 275.147L582.44 127Z" fill="white"/>
+            <path d="M434.293 349.22L286.147 423.293L138 349.22L286.147 275.147L434.293 349.22Z" class="logo" fill="#E361FF"/>
+            <path d="M582.44 719.587L434.293 793.66V645.513L582.44 719.587Z" class="logo" fill="#E361FF"/>
+            </svg>
+            </div> -->
+            <img src="logo.jpeg" alt="quark" width="400" height="450" class="center">
+        </div>
+
+
+    </div>
+    <script>
+        let pubnub;
+        const DELAY = 75; // ms
+
+        function setupPubNub() {
+            pubnub = new PubNub({
+                publishKey: "pub-c-7bccaa86-de43-45b8-a1a3-a34cfe25b4a9",
+                subscribeKey: "sub-c-bf663e90-0644-40ac-8fae-d84bafe2737b",
+                userId: "quark-1.0"
+            });
+
+            pubnub.addListener({
+                status: function () { },
+                message: async function ({ message }) {
+                    if (message.op == 'BG_COLOR') {
+                        document.body.style.backgroundColor = message.data.color;
+
+                        var logo_color = document.getElementsByClassName("logo");
+                        for (var i = 0; i < logo_color.length; i++) {
+                            logo_color[i].style.fill = message.data.color;
+                        }
+                    } else if (message.op == 'DISCO') {
+                        const sleep = ms => new Promise(r => setTimeout(r, ms));
+                        const multiplyArray = (arr, length) =>
+                            Array.from({ length }, () => arr).flat()
+                        const colors = multiplyArray(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'], 20);
+
+                        for (const color of colors) {
+                            document.body.style.backgroundColor = color;
+                            await sleep(DELAY)
+                        }
+                    } else if (message.op == 'REDIRECT') {
+                        location.replace(message.data.url)
+                    }
+                    else if (message.op == 'VISIBLE') {
+                        var x = document.getElementById("audio-div");
+                        x.style.display = 'block';
+
+                    }
+                },
+                presence: function () { }
+            });
+
+            pubnub.subscribe({ channels: ['main'] })
+        }
+
+        window.onload = setupPubNub;
+        var elem = document.getElementById("body");
+        const targetDiv = document.getElementById("main-div");
+        const formDiv = document.getElementById("form-div");
+        const btn = document.querySelector("#submitBtn");
+        const submit = document.getElementById("submitBtn");
+        const input = document.getElementById("username");
+
+        input.addEventListener("keyup", function (event) {
+            const value = event.currentTarget.value;
+            submit.style.display = "block";
+
+            if (value === "") {
+                submit.style.display = "none";
+            }
+        });
+        // console.log(elem, targetDiv, formDiv, btn);
+        const getFullScreenElement = () => {
+            return document.fullscreenElement || document.webkitFullscreenElement || document.mozFullscreenElement || document.msFullscreenElement;
+        }
+        const toggleFullScreen = () => {
+            if (getFullScreenElement()) {
+                document.exitFullscreen()
+            }
+            else {
+                document.documentElement.requestFullscreen().catch((e) => {
+                    console.log(e)
+                })
+                formDiv.style.display = 'none'
+                targetDiv.style.display = 'block'
+            }
+        }
+        function openFullscreen() {
+            if(!!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform)){
+                formDiv.style.display = 'none'
+                targetDiv.style.display = 'block'
+            }
+            else{
+                toggleFullScreen()
+
+            }
+            // if (elem.requestFullscreen) {
+            //     elem.requestFullscreen();
+            //     formDiv.remove()
+            //     targetDiv.style.display = "block";
+            //     // if (targetDiv.style.display !== "none") {
+            //     //     targetDiv.style.display = "none";
+            //     //     // formDiv.style.display = "block";
+            //     // } else {
+            //     //     targetDiv.style.display = "block";
+            //     // }
+
+
+            // } else if (elem.webkitRequestFullscreen) { /* Safari */
+            //     elem.webkitRequestFullscreen();
+            //     if (targetDiv.style.display !== "none") {
+            //         targetDiv.style.display = "none";
+            //         // formDiv.style.display = "block";
+            //     } else {
+            //         targetDiv.style.display = "block";
+            //     }
+
+
+            // } else if (elem.msRequestFullscreen) { /* IE11 */
+            //     elem.msRequestFullscreen();
+            //     if (targetDiv.style.display !== "none") {
+            //         targetDiv.style.display = "none";
+            //         // formDiv.style.display = "block";
+            //     } else {
+            //         targetDiv.style.display = "block";
+
+            //     }
+
+
+            // }
+        }
+        // btn.addEventListener('click', () => {
+        //     // console.log(formDiv);
+        //     // formDiv.style.display = "none";
+        //     openFullscreen()
+        // });
+        var x = document.getElementById("myAudio");
+
+        function playAudio() {
+            let y = document.getElementById("pause_btn");
+            y.style.display = "block";
+            let z = document.getElementById("play_btn");
+            z.style.display = "none";
+            x.play();
+
+        }
+
+    </script>
+    <!-- <h1 class="text-center">Ideation . Collaboration . Innovation</h1>
+    <img src="logo.jpeg" alt="quark" width="500" height="550" class="center">
+    <h2 class="text-center">Transforming, the QUARK way!</h2> -->
+</body>
+
+</html>
